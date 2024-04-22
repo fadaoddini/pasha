@@ -3,3 +3,4 @@
 *.pyc
 
 *.sqlitgitge3
+local_*.py

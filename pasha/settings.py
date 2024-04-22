@@ -11,6 +11,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'about.apps.AboutConfig',
 ]
 
 MIDDLEWARE = [
@@ -46,8 +47,12 @@ WSGI_APPLICATION = 'pasha.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': DB_NAME,
+        'PASSWORD': DB_PASS,
+        'HOST': DB_HOST,
+        'USER': DB_USER,
+        'PORT': DB_PORT,
     }
 }
 
