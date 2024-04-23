@@ -1,0 +1,51 @@
+{% load static %}
+<section class="service-wrap ptb-100">
+    <img src="{% static 'index/assets/img/tub.svg' %}" alt="Image" class="section-img style1 lg-none">
+    <img src="{% static 'index/assets/img/service/service-shape-1.png' %}" alt="Image" class="service-shape-1">
+    <div class="container">
+        <div class="row">
+            <div class="section-title style1 text-center mb-50">
+                <h2>خدمات پاشاکود</h2>
+                <p>
+                   تخصص ما برای کوتاه تر کردن فاصله شما تا موفقیت
+                </p>
+            </div>
+        </div>
+        <div class="row justify-content-center pos-rel">
+            <img src="{% static 'index/assets/img/service/leaf-5.png' %}" alt="Image" class="leaf-5">
+
+            {% for service in services %}
+            <div class="col-xl-4 col-lg-6 col-md-6">
+                <div class="service-card style1" data-animation="fadeIn"
+                     data-animation-delay="300ms">
+                    <div class="service-info">
+                        <div class="service-header">
+                            <div class="service-header-icon">
+                                 <img width="50" alt="{{ service.title }}" src="{{ service.category.image.url }}" >
+                            </div>
+                            <div class="service-header-title">
+                                <span>{{ service.lid }}</span>
+                                <h3><a href="{% url 'service-web-pk' service.pk %}">{{ service.title }}</a></h3>
+                            </div>
+                        </div>
+                        <p class="service-desc">
+                           {{  service.description }}
+                        </p>
+                    </div>
+                    <a href="{% url 'service-web-pk' service.pk %}" class="service-img">
+                        <img alt="{{ service.title }}" src="{{ service.image.url }}">
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+        <div class="row mt-25">
+            <div class="col-md-12">
+                <p class="subtitle">خدمات باغبانی ما را بررسی کنید. <a class="link style1"
+                                                                       href="{% url 'service-web' %}">مشاهده
+                    خدمات <i class="flaticon-left-arrow-1"></i></a></p>
+            </div>
+        </div>
+    </div>
+</section>
