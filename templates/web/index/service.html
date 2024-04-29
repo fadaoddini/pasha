@@ -5,9 +5,9 @@
     <div class="container">
         <div class="row">
             <div class="section-title style1 text-center mb-50">
-                <h2>خدمات پاشاکود</h2>
+                <h2>{{section3.title}}</h2>
                 <p>
-                   تخصص ما برای کوتاه تر کردن فاصله شما تا موفقیت
+                  {{section3.lid}}
                 </p>
             </div>
         </div>
@@ -20,8 +20,9 @@
                      data-animation-delay="300ms">
                     <div class="service-info">
                         <div class="service-header">
+
                             <div class="service-header-icon">
-                                 <img width="50" alt="{{ service.title }}" src="{{ service.category.image.url }}" >
+                                 <img width="50" alt="{{ service.title }}" src="{{ service.category.icon_b.url }}" >
                             </div>
                             <div class="service-header-title">
                                 <span>{{ service.lid }}</span>
@@ -42,10 +43,12 @@
         </div>
         <div class="row mt-25">
             <div class="col-md-12">
-                <p class="subtitle">خدمات باغبانی ما را بررسی کنید. <a class="link style1"
+                <p class="subtitle">{{section3.footer}} <a class="link style1"
                                                                        href="{% url 'service-web' %}">مشاهده
                     خدمات <i class="flaticon-left-arrow-1"></i></a></p>
             </div>
         </div>
     </div>
 </section>
+
+

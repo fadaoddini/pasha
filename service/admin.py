@@ -7,7 +7,7 @@ from django.contrib.admin import register
 
 
 @register(Service)
-class ProductAdmin(admin.ModelAdmin):
+class ServiceAdmin(admin.ModelAdmin):
     list_display = ('title', 'user', 'category', 'status', 'show_web')
     list_filter = ('user', 'status', 'category')
     list_editable = ('status', 'show_web')

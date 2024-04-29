@@ -6,7 +6,8 @@ from django.contrib.auth import get_user_model as user_model
 class Category(models.Model):
     name = models.CharField(max_length=32)
     parent = models.ForeignKey('self', on_delete=models.CASCADE, related_name='children', null=True, blank=True)
-    image = models.ImageField(upload_to='%Y/service/category/%m/%d', null=True, blank=True)
+    icon_w = models.ImageField(upload_to='%Y/service/category/%m/%d', null=True, blank=True)
+    icon_b = models.ImageField(upload_to='%Y/service/category/%m/%d', null=True, blank=True)
     description = models.TextField(blank=True)
 
     class Meta:

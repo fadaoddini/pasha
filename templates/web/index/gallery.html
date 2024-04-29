@@ -3,9 +3,11 @@
     <img src="{% static 'index/assets/img/tub.svg' %}" alt="Image" class="section-img style2">
     <div class="container">
         <div class="section-title style1 text-center mb-50">
-            <h2>گالری ما</h2>
-            <p>لورم ایپسوم به سادگی ساختار چاپ و متن را در بر می گیرد. لورم ایپسوم به مدت 40 سال
-                استاندارد صنعت بوده است. به سادگی ساختار چاپ و متن را در بر می گیرد.</p>
+            <h2>{{ section5.title }}</h2>
+            <p>
+
+                {{ section5.lid }}
+            </p>
         </div>
         <div class="row">
             <div class="col-xl-3 col-lg-6">
@@ -71,8 +73,8 @@
         </div>
         <div class="row mt-25">
             <div class="col-md-12">
-                <p class="subtitle">خدمات باغبانی ما را بررسی کنید. <a class="link style1"
-                                                                       href="services.html">مشاهده
+                <p class="subtitle">{{ section5.footer }}. <a class="link style1"
+                                                                       href="#">مشاهده
                     خدمات <i class="flaticon-left-arrow-1"></i></a></p>
             </div>
         </div>
