@@ -17,7 +17,8 @@ INSTALLED_APPS = [
     'blog.apps.BlogConfig',
     'gallery.apps.GalleryConfig',
 ]
-
+CSRF_TRUSTED_ORIGINS = ['https://*.mrsaeed.ir', 'https://*.127.0.0.1']
+CSRF_COOKIE_SECURE = False
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
