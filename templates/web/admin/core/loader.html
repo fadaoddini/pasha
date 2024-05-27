@@ -1,0 +1,9 @@
+{% load static %}
+{% load setting_tag %}
+{% get_setting as setting %}
+<!-- Loader -->
+
+<div id="global-loader">
+	<img src="{% static 'admin/assets/img/loader.svg' %}" class="loader-img" alt="{{setting.title}}">
+</div>
+<!-- End Loader -->

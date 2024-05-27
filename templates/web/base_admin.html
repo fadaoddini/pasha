@@ -1,0 +1,58 @@
+{% load static %}
+{% load setting_tag %}
+{% get_setting as setting %}
+
+<!DOCTYPE html>
+<html lang="en" dir="rtl" >
+		 {% include 'web/admin/core/head.html' %}
+
+<body class="main-body leftmenu">
+
+<!-- Loader -->
+	 {% include 'web/admin/core/loader.html' %}
+<!-- End Loader -->
+
+<!-- Page -->
+<div class="page">
+
+	<!-- Sidemenu -->
+	 {% include 'web/admin/core/sidemenu.html' %}
+	<!-- End Sidemenu -->
+
+    <!-- Main Header-->
+		 {% include 'web/admin/core/main_header.html' %}
+
+	<!-- End Main Header-->
+
+    <!-- Mobile-header -->
+		 {% include 'web/admin/core/mobile_header.html' %}
+
+	<!-- Mobile-header closed -->
+
+	<!-- Main Content-->
+	<div class="main-content side-content pt-0">
+		<div class="container-fluid">
+			<div class="inner-body">
+
+
+			 {% block header_page %} {% endblock %}
+			 {% block content %} {% endblock %}
+
+			</div>
+		</div>
+	</div>
+	<!-- End Main Content-->
+
+	<!-- Main Footer-->
+	{% include 'web/admin/core/main_footer.html' %}
+	<!--End Footer-->
+
+    <!-- Sidebar -->
+	{% include 'web/admin/core/sidebar.html' %}
+	<!-- End Sidebar -->
+
+</div>
+<!-- End Page -->
+{% include 'web/admin/core/footer.html' %}
+</body>
+</html>

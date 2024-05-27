@@ -16,6 +16,7 @@ INSTALLED_APPS = [
     'service.apps.ServiceConfig',
     'blog.apps.BlogConfig',
     'gallery.apps.GalleryConfig',
+    'adminweb.apps.AdminwebConfig',
 ]
 CSRF_TRUSTED_ORIGINS = ['https://*.mrsaeed.ir', 'https://*.127.0.0.1']
 CSRF_COOKIE_SECURE = False
