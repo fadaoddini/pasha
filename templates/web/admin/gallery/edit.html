@@ -1,0 +1,202 @@
+﻿{% extends 'web/base_admin.html' %}
+{% load widget_tweaks %}
+{% load static %}
+{% block javas2 %}
+<script type="text/javascript" src="{% static "ckeditor/ckeditor-init.js" %}"></script>
+<script type="text/javascript" src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script>
+{% endblock %}
+{% block title %}
+ویرایش گالری
+{% endblock %}
+
+{% block style %}
+
+
+    <style>
+        .nist{
+            display: none;
+        }
+        .hast{
+            display: block;
+
+        }
+        .bg6{
+        background:#ffcc99;
+           padding : 5px;
+        }
+    </style>
+
+<link rel="stylesheet" href="{% static 'admin/assets/plugins/fileuploads/css/fileupload.css' %}">
+{% endblock %}
+
+
+{% block header_page %}
+<div class="page-header" xmlns="http://www.w3.org/1999/html">
+					<div>
+
+						<ol class="breadcrumb">
+
+							<li class="breadcrumb-item active" aria-current="page">ویرایش گالری </li>
+						</ol>
+					</div>
+
+				</div>
+{% endblock %}
+
+{% block content %}
+
+<div class="row">
+					<div class="col-lg-12">
+						<div class="card custom-card">
+							<div class="card-body">
+
+								<div class="row">
+    <div class="col-lg-12">
+        <div class="card custom-card">
+            <div class="card-body">
+                  <div class="row row-sm">
+        <div class="col-xl-12 col-lg-12 col-md-12">
+            <div class="card custom-card">
+                <div class="card-body">
+                    <div>
+                        <h6 class="main-content-label mb-1">ویرایش گالری
+
+                        </h6>
+
+                    </div>
+                    <form method="post" action="{% url 'edit-gallery' gallery.pk %}" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="">
+                            <div class="row row-sm">
+                                <div class="col-12">
+                                    <div class="row">
+                                        <div class="col-8">
+                                            <div class="row  bg-light rounded pt-3">
+
+
+
+                                                <div class="col-lg-12 form-group">
+                                                    <label class="form-label">
+                                                        توضیح گالری :<span class="tx-danger">*</span>
+                                                    </label>
+                                                    {% render_field form_gallery.description col="2" class="form-control" %}
+                                                </div>
+
+
+                                                <div class="col-lg-12 form-group">
+                                                    <label class="form-label">
+                                                        تصاویر قبلی :<span class="tx-danger">*</span>
+                                                    </label>
+
+
+                                                {% for im in gallery.images.all %}
+												<a href="#" class="image"><img width="100" src="{{ im.image.url }}"></a>
+												{% endfor %}
+                                                </div>
+
+
+
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="row">
+
+                                                 <div class="col-lg-12 form-group  ">
+                                                                <label class="form-label">
+                                                        وضعیت انتشار :
+                                                                    <span
+                                                                        class="tx-danger">*</span>
+                                                                </label>
+                                                                <select id="status" name="status" class="form-control ">
+                                                                 {% if gallery.status == True %}
+
+
+                                                                    <option  value="True" selected>منتشر شده</option>
+                                                                    <option  value="False">منتشر نشده</option>
+
+                                                                {% else %}
+                                                                   <option  value="True" >منتشر شده</option>
+                                                                    <option  value="False" selected>منتشر نشده</option>
+                                                                {% endif %}
+                                                                </select>
+                                                            </div>
+
+
+                                                <div class="col-lg-12 form-group">
+                                                    <div class="row">
+                            <div class="col-lg-12 col-md-6 col-sm-8">
+                                <div class="browse-file-wrapper mb-30 wow fadeInUp">
+
+                                    <div class="row row-sm">
+                                        <div class="col-sm-12 col-md-12 mt-3">
+                                            <h6>تصاویر گالری را قرار دهید</h6>
+                                            <div id="div-img-product" class="row row-sm bg-light p-2 rounded">
+
+
+
+                                            </div>
+                                        </div>
+                                        <a onclick="addimage()" class="btn btn-primary btn-sm mt-1 ">+
+                                            افزودن تصویر جدید</a>
+                                    </div>
+
+
+                                    <input type="hidden" value="" id="numpic" name="numpic">
+                                    <input type="hidden" name="next" value="{{ request.path }}">
+                                    <div class="browse-file-note">حجم قابل قبول | کمتر از 1 MB</div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <button class="btn ripple btn-main-primary btn-block" type="submit">ویرایش</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+							</div>
+						</div>
+					</div>
+				</div>
+{% endblock %}
+
+{% block javas %}
+<script src="{% static 'admin/assets/plugins/fileuploads/js/fileupload.js' %}"></script>
+<script src="{% static 'admin/assets/plugins/fileuploads/js/file-upload.js' %}"></script>
+<script type="text/javascript"> window.CSRF_TOKEN = "{{ csrf_token }}"; </script>
+<script>
+addimage()
+
+function addimage(){
+    var c = document.getElementById("div-img-product").children.length;
+    $('.is-dropify').removeClass('dropify');
+    $('#numpic').html('')
+    $('#numpic').val(c)
+
+    var divImage = '<div class="col-sm-12 col-md-6 mt-2" ><input class="is-dropify" type="file" name="image'+c+'" id="image'+c+'"></div>';
+    $('#div-img-product').append(divImage);
+    $('.is-dropify').dropify();
+}
+
+
+</script>
+{% endblock %}
+
+</body>
+</html>

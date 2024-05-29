@@ -1,3 +1,4 @@
+from ckeditor_uploader.fields import RichTextUploadingField
 from django.db import models
 from django.contrib.auth import get_user_model as user_model
 from tinymce.models import HTMLField
@@ -29,8 +30,8 @@ class Blog(models.Model):
     User = user_model()
     title = models.CharField(max_length=50)
     lid = models.CharField(max_length=50)
-    hit = models.PositiveBigIntegerField()
-    description = HTMLField(blank=True)
+    hit = models.PositiveBigIntegerField(blank=True)
+    description = RichTextUploadingField(blank=True)
     image = models.ImageField(upload_to='%Y/%m/%d/blogs/', null=True, blank=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='blogs')
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='blogs')

@@ -6,7 +6,7 @@
 <script type="text/javascript" src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script>
 {% endblock %}
 {% block title %}
-افزودن | ویرایش بلاگ
+ویرایش خدمات
 {% endblock %}
 
 
@@ -17,7 +17,7 @@
 
 						<ol class="breadcrumb">
 
-							<li class="breadcrumb-item active" aria-current="page">افزودن | ویرایش بلاگ</li>
+							<li class="breadcrumb-item active" aria-current="page">ویرایش خدمات</li>
 						</ol>
 					</div>
 
@@ -40,12 +40,12 @@
             <div class="card custom-card">
                 <div class="card-body">
                     <div>
-                        <h6 class="main-content-label mb-1">افزودن وبلاگ
+                        <h6 class="main-content-label mb-1">ویرایش خدمات
 
                         </h6>
 
                     </div>
-                    <form method="post" action="{% url 'add-blog' %}" enctype="multipart/form-data">
+                    <form method="post" action="{% url 'edit-service' service.pk %}" enctype="multipart/form-data">
                         {% csrf_token %}
                         <div class="">
                             <div class="row row-sm">
@@ -57,19 +57,22 @@
                                                     <label class="form-label">
                                                         تیتر وبلاگ : <span class="tx-danger">*</span>
                                                     </label>
-                                                    {% render_field form_blog.title class="form-control" %}
+
+                                                    {% render_field form_service.title class="form-control" value=service.title %}
                                                 </div>
                                                 <div class="col-lg-8 form-group">
                                                     <label class="form-label">
                                                         لید یا یک توضیح کوتاه برای وبلاگ : <span class="tx-danger">*</span>
                                                     </label>
-                                                    {% render_field form_blog.lid col="2" class="form-control" %}
+                                                    {% render_field form_service.lid col="2" class="form-control" value=service.lid %}
                                                 </div>
+
+
                                                 <div class="col-lg-12 form-group">
                                                     <label class="form-label">
                                                         متن کامل وبلاگ : <span class="tx-danger">*</span>
                                                     </label>
-                                                    {% render_field form_blog.description col="2" class="form-control" %}
+                                                    {% render_field form_service.description col="2" class="form-control" %}
                                                 </div>
 
 
@@ -79,18 +82,33 @@
                                         <div class="col-3">
                                             <div class="row">
 
-                                                 <div class="col-lg-12 form-group">
-                                                    <label class="form-label">
+                                                 <div class="col-lg-12 form-group  ">
+                                                                <label class="form-label">
                                                         وضعیت انتشار :
-                                                    </label>
-                                                    {% render_field form_blog.status class="form-control" %}
-                                                </div>
+                                                                    <span
+                                                                        class="tx-danger">*</span>
+                                                                </label>
+                                                                <select id="status" name="status" class="form-control ">
+                                                                 {% if service.status == True %}
+
+
+                                                                    <option  value="True" selected>منتشر شده</option>
+                                                                    <option  value="False">منتشر نشده</option>
+
+                                                                {% else %}
+                                                                   <option  value="True" >منتشر شده</option>
+                                                                    <option  value="False" selected>منتشر نشده</option>
+                                                                {% endif %}
+                                                                </select>
+                                                            </div>
+
+
 
                                                 <div class="col-lg-12 form-group">
                                                     <label class="form-label">
                                                         دسته بندی وبلاگ را انتخاب نمائید
                                                     </label>
-                                                    {% render_field form_blog.category class="form-control" %}
+                                                    {% render_field form_service.category class="form-control" %}
                                                 </div>
 
 
@@ -99,7 +117,9 @@
                                                     <label class="form-label">
                                                         تصویر مربوط به بلاگ <span class="tx-danger">*</span>
                                                     </label>
-                                                    {% render_field form_blog.image class="dropify" %}
+                                                    {% render_field form_service.image class="dropify" %}
+                                                   <img src=" {{service.image.url}}" alt="{{service.title}}">
+
                                                 </div>
 
                                             </div>

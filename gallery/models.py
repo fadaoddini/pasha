@@ -25,7 +25,7 @@ class Gallery(models.Model):
     @classmethod
     def add_gallery(cls, request, *args, **kwargs):
         result = "200"
-        is_active = False
+        is_active =True
         form = request.POST
         user = request.user
         description = form.get('description')
@@ -58,6 +58,6 @@ class GalleryImage(models.Model):
 
     @classmethod
     def add_images(cls, image, gallery):
-        new_gallery = GalleryImage(image=image, gallery=gallery)
-        new_gallery.save()
-        return new_gallery
+        new_image = GalleryImage(image=image, gallery=gallery)
+        new_image.save()
+        return new_image

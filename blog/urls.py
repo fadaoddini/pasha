@@ -1,7 +1,7 @@
 from django.urls import path, re_path
 
 from blog.views import blog_list, category_blog_list, detail_blog, SingleBlogWeb, BlogWeb, BlogWebPk, AddBlog, \
-    BlogListWeb
+    BlogListWeb, EditBlog
 
 urlpatterns = [
     path('blog/admin/list/', BlogListWeb.as_view(), name='blog-list-admin'),
@@ -14,4 +14,5 @@ urlpatterns = [
     path('blog/<int:pk>/', BlogWebPk.as_view(), name='blog-web-pk'),
     path('archive/<int:year>/<int:month>/', blog_list),
     path('add_blog/', AddBlog.as_view(), name='add-blog'),
+    path('edit_blog/<int:pk>/', EditBlog.as_view(), name='edit-blog'),
 ]

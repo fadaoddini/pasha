@@ -3,7 +3,7 @@
 {% load static %}
 
 {% block title %}
-وبلاگ
+خدمات
 {% endblock %}
 
 
@@ -16,12 +16,12 @@
 
 							<li class="breadcrumb-item active" aria-current="page">
 
-                                وبلاگ
+                                خدمات
                             |
                                 (تعداد محتوا
 
                                  <strong class="text-danger">
-                                     {{count_blogs}}
+                                     {{count_services}}
                                  </strong>
                                 عدد )
 
@@ -67,7 +67,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            {% for blog in blogs %}
+                            {% for service in services %}
 
 
                             <tr class="border-bottom">
@@ -76,17 +76,17 @@
 
                                 <td>
 															<span class="crypto-icon bg-danger-transparent ml-3 my-auto">
-																<img width="30" src="{{ blog.image.url }}" alt="{{ blog.title }}">
+																<img width="30" src="{{ service.image.url }}" alt="{{ service.title }}">
 
 															</span>
                                 </td>
-                                <td class="font-weight-bold">{{ blog.title }}</td>
-                                <td>{{ blog.hit }}</td>
+                                <td class="font-weight-bold">{{ service.title }}</td>
+                                <td>{{ service.hit }}</td>
                                 <td class="text-danger font-weight-bold">
-                                    {{ blog.category }}
+                                    {{ service.category }}
                                 </td>
 
-                                 <td>{% if blog.status %}
+                                 <td>{% if service.status %}
                                  منتشر شده
 
                                      {% else %}
@@ -99,7 +99,7 @@
 
                                  </td>
                                  <td>
-                                     <a href="{% url 'edit-blog' blog.id %}" class="btn btn-sm btn-warning">ویرایش</a>
+                                     <a href="{% url 'edit-service' service.id %}" class="btn btn-sm btn-warning">ویرایش</a>
 
                                  </td>
 

@@ -1,11 +1,11 @@
 from django import forms
 
-from blog.models import Blog
+from service.models import Service
 
 
-class BlogForm(forms.ModelForm):
+class ServiceForm(forms.ModelForm):
     class Meta:
-        model = Blog
+        model = Service
         fields = ['title', 'lid', 'description', 'image', 'category', 'status']
 
         widgets = {'description': forms.Textarea()}

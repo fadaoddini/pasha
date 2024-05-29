@@ -3,7 +3,7 @@
 {% load static %}
 
 {% block title %}
-وبلاگ
+گالری
 {% endblock %}
 
 
@@ -16,12 +16,12 @@
 
 							<li class="breadcrumb-item active" aria-current="page">
 
-                                وبلاگ
+                                گالری
                             |
                                 (تعداد محتوا
 
                                  <strong class="text-danger">
-                                     {{count_blogs}}
+                                     {{count_gallerys}}
                                  </strong>
                                 عدد )
 
@@ -56,37 +56,33 @@
                             <thead>
                             <tr>
                                 <th style="width:50px"></th>
-                                <th>عنوان</th>
-                                <th> بازدید</th>
-                                <th>دسته بندی</th>
-
-
                                 <th>وضعیت</th>
                                 <th style="width:300px">عملیات</th>
 
                             </tr>
                             </thead>
                             <tbody>
-                            {% for blog in blogs %}
+                            {% for gallery in gallerys %}
 
 
                             <tr class="border-bottom">
 
 
-
                                 <td>
 															<span class="crypto-icon bg-danger-transparent ml-3 my-auto">
-																<img width="30" src="{{ blog.image.url }}" alt="{{ blog.title }}">
+                                                                {% for pi in gallery.images.all %}
+														{% if forloop.counter == 1 %}
+															<img width="30" alt="{{ gallery.description }}" src="{{ pi.image.url }}">
+														{% else %}
+
+														{% endif %}
+													{% endfor %}
+
 
 															</span>
                                 </td>
-                                <td class="font-weight-bold">{{ blog.title }}</td>
-                                <td>{{ blog.hit }}</td>
-                                <td class="text-danger font-weight-bold">
-                                    {{ blog.category }}
-                                </td>
 
-                                 <td>{% if blog.status %}
+                                 <td>{% if gallery.is_active %}
                                  منتشر شده
 
                                      {% else %}
@@ -99,7 +95,7 @@
 
                                  </td>
                                  <td>
-                                     <a href="{% url 'edit-blog' blog.id %}" class="btn btn-sm btn-warning">ویرایش</a>
+                                     <a href="{% url 'edit-gallery' gallery.id %}" class="btn btn-sm btn-warning">ویرایش</a>
 
                                  </td>
 

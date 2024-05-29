@@ -38,15 +38,16 @@ class SingleBlogWeb(View):
 
 
 class BlogWeb(View):
-    template_name = 'web/blog/index.html'
+    template_name = 'web/admin/blog/index.html'
 
     def get(self, request, *args, **kwargs):
         context = dict()
         categories = Category.objects.prefetch_related('blogs').all()
-        blogs = Blog.objects.select_related('category').filter(status=True).all()
-        print(categories[0].blogs.all())
+        blogs = Blog.objects.select_related('category').all()
+        count_blogs = blogs.count()
         context['blogs'] = blogs
         context['categories'] = categories
+        context['count_blogs'] = count_blogs
         return render(request, template_name=self.template_name, context=context,
                       content_type=None, status=None, using=None)
 
@@ -58,7 +59,9 @@ class BlogListWeb(View):
         context = dict()
         categories = Category.objects.prefetch_related('blogs').all()
         blogs = Blog.objects.select_related('category').all()
+        count_blogs = blogs.count()
         context['blogs'] = blogs
+        context['count_blogs'] = count_blogs
         context['categories'] = categories
         return render(request, template_name=self.template_name, context=context,
                       content_type=None, status=None, using=None)
@@ -94,9 +97,11 @@ class AddBlog(View):
         context['blogs'] = blogs
 
         form = forms.BlogForm(request.POST, request.FILES)
+
         if form.is_valid():
             blog = form.save(commit=False)
             blog.user = request.user
+            blog.hit = 1
             blog.save()
             messages.info(request, "وبلاگ با موفقیت ثبت شد")
             return HttpResponseRedirect(reverse_lazy('blog-web'))
@@ -105,3 +110,37 @@ class AddBlog(View):
 
         return HttpResponseRedirect(reverse_lazy('blog-web'))
 
+
+class EditBlog(View):
+    template_name_learn = 'web/admin/blog/index.html'
+    template_name = 'web/admin/blog/edit.html'
+
+    def get(self, request, pk, *args, **kwargs):
+        context = dict()
+        blog = Blog.objects.filter(pk=pk).first()
+        form_blog = BlogForm(instance=blog)
+        context['form_blog'] = form_blog
+        context['blog'] = blog
+        return render(request, template_name=self.template_name, context=context,
+                      content_type=None, status=None, using=None)
+
+    def post(self, request, pk, *args, **kwargs):
+        context = dict()
+        blogs = Blog.objects.all()
+        context['blogs'] = blogs
+        blog = Blog.objects.filter(pk=pk).first()
+        context['blog'] = blog
+        if blog:
+            form = forms.BlogForm(request.POST, request.FILES, instance=blog)
+        else:
+            form = forms.BlogForm(request.POST, request.FILES)
+        if form.is_valid():
+            blogform = form.save(commit=False)
+            blogform.user = request.user
+            blogform.save()
+            messages.info(request, "وبلاگ با موفقیت ثبت شد")
+            return HttpResponseRedirect(reverse_lazy('blog-web'))
+        else:
+            messages.error(request, "با خطا روبرو شد!")
+
+        return HttpResponseRedirect(reverse_lazy('blog-web'))

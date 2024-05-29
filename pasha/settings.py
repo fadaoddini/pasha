@@ -19,6 +19,7 @@ INSTALLED_APPS = [
     'adminweb.apps.AdminwebConfig',
     'widget_tweaks',
     'tinymce',
+    'ckeditor',
 ]
 CSRF_TRUSTED_ORIGINS = ['https://*.mrsaeed.ir', 'https://*.127.0.0.1']
 CSRF_COOKIE_SECURE = False
@@ -100,3 +101,10 @@ MEDIA_URL = '/media/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 DATA_UPLOAD_MAX_NUMBER_FIELDS = 100000000
 
+# CKEDITOR
+CKEDITOR_UPLOAD_PATH = "uploads/"
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'full',
+    },
+}

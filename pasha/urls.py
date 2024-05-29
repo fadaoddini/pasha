@@ -11,6 +11,8 @@ urlpatterns = [
     path('about/', include('about.urls')),
     path('', include('index.urls')),
     path('service/', include('service.urls')),
+    path('gallery/', include('gallery.urls')),
     path('admin_web/', include('adminweb.urls')),
     path('tinymce/', include('tinymce.urls')),
+    path('ckeditor/', include('ckeditor_uploader.urls')),
 ] + static(MEDIA_URL, document_root=MEDIA_ROOT)
