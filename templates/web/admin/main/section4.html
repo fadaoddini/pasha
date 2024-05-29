@@ -1,0 +1,244 @@
+﻿{% extends 'web/base_admin.html' %}
+{% load widget_tweaks %}
+{% load static %}
+
+{% block title %}
+ویرایش بخش چهارم
+{% endblock %}
+
+
+
+{% block header_page %}
+<div class="page-header" xmlns="http://www.w3.org/1999/html">
+					<div>
+
+						<ol class="breadcrumb">
+
+							<li class="breadcrumb-item active" aria-current="page">ویرایش بخش چهارم</li>
+						</ol>
+					</div>
+
+				</div>
+{% endblock %}
+
+{% block content %}
+
+<div class="row">
+					<div class="col-lg-12">
+						<div class="card custom-card">
+							<div class="card-body">
+
+								<div class="row">
+    <div class="col-lg-12">
+        <div class="card custom-card">
+            <div class="card-body">
+                <div class="row row-sm">
+                    <div class="col-xl-12 col-lg-12 col-md-12">
+                        <div class="card custom-card">
+                            <div class="card-body">
+                                <div>
+                                    <h6 class="main-content-label mb-4">ویرایش بخش چهارم
+
+                                    </h6>
+
+                                </div>
+                                <form method="post" action="{% url 'update-section4' %}"
+                                      enctype="multipart/form-data">
+                                    {% csrf_token %}
+                                    <div class="">
+                                        <div class="row row-sm">
+                                            <div class="col-12">
+
+
+                                                        <div class="row  bg-light rounded pt-3">
+                                                            <div class="col-lg-12 form-group">
+                                                                <label class="form-label">
+                                                                    عنوان : <span class="tx-danger">*</span>
+                                                                </label>
+
+                                                                {% render_field form_section4.title class="form-control" value=section4.title %}
+                                                            </div>
+
+                                                            <div class="col-lg-6 form-group">
+                                                                <label class="form-label">
+                                                                    تصویر <span
+                                                                        class="tx-danger">*</span>
+                                                                </label>
+
+                                                                {% render_field form_section4.image class="dropify" %}
+                                                                <img src=" {{section4.image.url}}" alt="{{section4.title}}">
+                                                            </div>
+
+                                                            <div class="col-lg-6 form-group">
+                                                                <label class="form-label">
+                                                                    فیلم <span
+                                                                        class="tx-danger">*</span>
+                                                                </label>
+                                                                {% render_field form_section4.film class="dropify" %}
+                                                                <div class="hero-video-img-one">
+
+
+                        <a class="video-play circle" href="{{section4.film.url}}">نمایش فیلم</a>
+                    </div>
+
+                                                            </div>
+
+															<div class="col-lg-4 form-group">
+                                                                <label class="form-label">
+                                                                    عنوان رضایت مشتریان : <span class="tx-danger">*</span>
+                                                                </label>
+
+                                                                {% render_field form_section4.text_ok class="form-control" value=section4.text_ok %}
+                                                            </div>
+
+                                                            <div class="col-lg-4 form-group">
+                                                                <label class="form-label">
+                                                                    آیکن رضایت مشتریان <span
+                                                                        class="tx-danger">*</span>
+                                                                </label>
+                                                                {% render_field form_section4.icon_ok class="dropify" %}
+                                                                <img src=" {{section4.icon_ok.url}}" alt="{{section4.text_ok}}">
+                                                            </div>
+															<div class="col-lg-4 form-group">
+                                                                <label class="form-label">
+                                                                    تعداد رضایت مشتریان (عدد) : <span class="tx-danger">*</span>
+                                                                </label>
+
+                                                                {% render_field form_section4.num_ok class="form-control" value=section4.num_ok %}
+                                                            </div>
+
+															<div class="col-lg-4 form-group">
+                                                                <label class="form-label">
+                                                                    عنوان تعداد محصولات : <span class="tx-danger">*</span>
+                                                                </label>
+
+                                                                {% render_field form_section4.text_project class="form-control" value=section4.text_project %}
+                                                            </div>
+
+                                                            <div class="col-lg-4 form-group">
+                                                                <label class="form-label">
+                                                                    آیکن تعداد محصولات <span
+                                                                        class="tx-danger">*</span>
+                                                                </label>
+                                                                {% render_field form_section4.icon_project class="dropify" %}
+                                                                <img src=" {{section4.icon_project.url}}" alt="{{section4.text_project}}">
+                                                            </div>
+															<div class="col-lg-4 form-group">
+                                                                <label class="form-label">
+                                                                    تعداد محصولات (عدد) : <span class="tx-danger">*</span>
+                                                                </label>
+
+                                                                {% render_field form_section4.num_project class="form-control" value=section4.num_project %}
+                                                            </div>
+
+															<div class="col-lg-4 form-group">
+                                                                <label class="form-label">
+                                                                    عنوان تجربه : <span class="tx-danger">*</span>
+                                                                </label>
+
+                                                                {% render_field form_section4.text_tajrobe class="form-control" value=section4.text_tajrobe %}
+                                                            </div>
+
+                                                            <div class="col-lg-4 form-group">
+                                                                <label class="form-label">
+                                                                    آیکن تجربه : <span
+                                                                        class="tx-danger">*</span>
+                                                                </label>
+                                                                {% render_field form_section4.icon_tajrobe class="dropify" %}
+                                                                <img src=" {{section4.icon_tajrobe.url}}" alt="{{section4.text_tajrobe}}">
+                                                            </div>
+															<div class="col-lg-4 form-group">
+                                                                <label class="form-label">
+                                                                    تجربه به سال (عدد) : <span class="tx-danger">*</span>
+                                                                </label>
+
+                                                                {% render_field form_section4.num_tajrobe class="form-control" value=section4.num_tajrobe %}
+                                                            </div>
+
+
+
+															<div class="col-lg-4 form-group">
+                                                                <label class="form-label">
+                                                                    عنوان ایجاد شغل : <span class="tx-danger">*</span>
+                                                                </label>
+
+                                                                {% render_field form_section4.text_person class="form-control" value=section4.text_person %}
+                                                            </div>
+
+                                                            <div class="col-lg-4 form-group">
+                                                                <label class="form-label">
+                                                                    آیکن ایجاد شغل : <span
+                                                                        class="tx-danger">*</span>
+                                                                </label>
+                                                                {% render_field form_section4.icon_person class="dropify" %}
+                                                                <img src=" {{section4.icon_person.url}}" alt="{{section4.text_person}}">
+                                                            </div>
+															<div class="col-lg-4 form-group">
+                                                                <label class="form-label">
+                                                                    تعداد ایجاد شغل (عدد) : <span class="tx-danger">*</span>
+                                                                </label>
+
+                                                                {% render_field form_section4.num_person class="form-control" value=section4.num_person %}
+                                                            </div>
+
+
+
+
+
+
+
+
+
+
+                                                    
+
+
+
+<div class="col-lg-12 form-group">
+                                                                <label class="form-label">
+                                                                    توضیح کوتاه روی اسلایدر :
+                                                                </label>
+
+                                                                <textarea type="text" rows="6" name="lid" class="form-control"
+                                                              id="lid">{{section4.lid}}</textarea>
+
+                                                            </div>
+
+
+
+
+                                                        </div>
+
+
+
+                                            </div>
+
+
+                                        </div>
+                                        <button class="btn ripple btn-main-primary btn-block mt-4" type="submit">ویرایش اطلاعات
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+							</div>
+						</div>
+					</div>
+				</div>
+{% endblock %}
+
+{% block javas %}
+
+{% endblock %}
+
+</body>
+</html>

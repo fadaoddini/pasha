@@ -1,0 +1,134 @@
+﻿{% extends 'web/base_admin.html' %}
+{% load widget_tweaks %}
+{% load static %}
+
+{% block title %}
+افزودن | ویرایش بلاگ
+{% endblock %}
+
+
+
+{% block header_page %}
+<div class="page-header" xmlns="http://www.w3.org/1999/html">
+					<div>
+
+						<ol class="breadcrumb">
+
+							<li class="breadcrumb-item active" aria-current="page">افزودن | ویرایش بلاگ</li>
+						</ol>
+					</div>
+
+				</div>
+{% endblock %}
+
+{% block content %}
+
+<div class="row">
+					<div class="col-lg-12">
+						<div class="card custom-card">
+							<div class="card-body">
+
+								<div class="row">
+    <div class="col-lg-12">
+        <div class="card custom-card">
+            <div class="card-body">
+                  <div class="row row-sm">
+        <div class="col-xl-12 col-lg-12 col-md-12">
+            <div class="card custom-card">
+                <div class="card-body">
+                    <div>
+                        <h6 class="main-content-label mb-1">افزودن وبلاگ
+
+                        </h6>
+
+                    </div>
+                    <form method="post" action="{% url 'add-blog' %}" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="">
+                            <div class="row row-sm">
+                                <div class="col-12">
+                                    <div class="row">
+                                        <div class="col-9">
+                                            <div class="row  bg-light rounded pt-3">
+                                                <div class="col-lg-4 form-group">
+                                                    <label class="form-label">
+                                                        تیتر وبلاگ : <span class="tx-danger">*</span>
+                                                    </label>
+                                                    {% render_field form_blog.title class="form-control" %}
+                                                </div>
+                                                <div class="col-lg-8 form-group">
+                                                    <label class="form-label">
+                                                        لید یا یک توضیح کوتاه برای وبلاگ : <span class="tx-danger">*</span>
+                                                    </label>
+                                                    {% render_field form_blog.lid col="2" class="form-control" %}
+                                                </div>
+                                                <div class="col-lg-12 form-group">
+                                                    <label class="form-label">
+                                                        متن کامل وبلاگ : <span class="tx-danger">*</span>
+                                                    </label>
+                                                    {% render_field form_blog.description col="2" class="form-control" %}
+                                                </div>
+
+
+
+                                            </div>
+                                        </div>
+                                        <div class="col-3">
+                                            <div class="row">
+
+                                                 <div class="col-lg-12 form-group">
+                                                    <label class="form-label">
+                                                        وضعیت انتشار :
+                                                    </label>
+                                                    {% render_field form_blog.status class="form-control" %}
+                                                </div>
+
+                                                <div class="col-lg-12 form-group">
+                                                    <label class="form-label">
+                                                        دسته بندی وبلاگ را انتخاب نمائید
+                                                    </label>
+                                                    {% render_field form_blog.category class="form-control" %}
+                                                </div>
+
+
+
+                                                <div class="col-lg-12 form-group">
+                                                    <label class="form-label">
+                                                        تصویر مربوط به بلاگ <span class="tx-danger">*</span>
+                                                    </label>
+                                                    {% render_field form_blog.image class="dropify" %}
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <button class="btn ripple btn-main-primary btn-block" type="submit">افزودن</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+							</div>
+						</div>
+					</div>
+				</div>
+{% endblock %}
+
+{% block javas %}
+
+{% endblock %}
+
+</body>
+</html>

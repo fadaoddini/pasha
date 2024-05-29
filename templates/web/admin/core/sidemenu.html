@@ -22,22 +22,25 @@
                         class="angle fe fe-chevron-left"></i></a>
                 <ul class="nav-sub">
                     <li class="nav-sub-item">
-                        <a class="nav-sub-link" href="#">ویرایش اسلایدر بالای سایت</a>
+                        <a class="nav-sub-link" href="{% url 'update-app-setting' %}">تنظیمات اصلی</a>
                     </li>
                     <li class="nav-sub-item">
-                        <a class="nav-sub-link" href="#">ویرایش بخش دوم سایت</a>
+                        <a class="nav-sub-link" href="{% url 'update-section1' %}">ویرایش اسلایدر بالای سایت</a>
+                    </li>
+                    <li class="nav-sub-item">
+                        <a class="nav-sub-link" href="{% url 'update-section2' %}">ویرایش بخش دوم سایت</a>
                     </li>
                      <li class="nav-sub-item">
-                        <a class="nav-sub-link" href="#">ویرایش بخش خدمات سایت</a>
+                        <a class="nav-sub-link" href="{% url 'update-section3' %}">ویرایش بخش خدمات سایت</a>
                     </li>
                     <li class="nav-sub-item">
-                        <a class="nav-sub-link" href="#">ویرایش بخش چرا پاشاکود سایت</a>
+                        <a class="nav-sub-link" href="{% url 'update-section4' %}">ویرایش بخش چرا پاشاکود سایت</a>
                     </li>
                     <li class="nav-sub-item">
-                        <a class="nav-sub-link" href="#">ویرایش بخش گالری سایت</a>
+                        <a class="nav-sub-link" href="{% url 'update-section5' %}">ویرایش بخش گالری سایت</a>
                     </li>
                     <li class="nav-sub-item">
-                        <a class="nav-sub-link" href="#">ویرایش بخش فوتر سایت</a>
+                        <a class="nav-sub-link" href="{% url 'update-section6' %}">ویرایش بخش فوتر سایت</a>
                     </li>
 
                 </ul>
@@ -48,10 +51,16 @@
                         class="angle fe fe-chevron-left"></i></a>
                 <ul class="nav-sub">
                     <li class="nav-sub-item">
-                        <a class="nav-sub-link" href="#"> دسته بندی وبلاگ</a>
+                        <a class="nav-sub-link" href="#">لیست دسته بندی وبلاگ</a>
                     </li>
                     <li class="nav-sub-item">
-                        <a class="nav-sub-link" href="#">وبلاگ </a>
+                        <a class="nav-sub-link" href="#">افزودن دسته بندی وبلاگ</a>
+                    </li>
+                    <li class="nav-sub-item">
+                        <a class="nav-sub-link" href="{% url 'blog-list-admin' %}">لیست وبلاگ </a>
+                    </li>
+<li class="nav-sub-item">
+                        <a class="nav-sub-link" href="{% url 'add-blog' %}">افزودن بلاگ جدید </a>
                     </li>
 
                 </ul>

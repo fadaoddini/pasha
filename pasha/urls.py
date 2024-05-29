@@ -7,8 +7,10 @@ from pasha.settings import MEDIA_URL, MEDIA_ROOT
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('blog/', include('blog.urls')),
     path('about/', include('about.urls')),
     path('', include('index.urls')),
     path('service/', include('service.urls')),
     path('admin_web/', include('adminweb.urls')),
+    path('tinymce/', include('tinymce.urls')),
 ] + static(MEDIA_URL, document_root=MEDIA_ROOT)

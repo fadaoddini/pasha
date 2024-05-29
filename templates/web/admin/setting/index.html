@@ -1,0 +1,202 @@
+﻿{% extends 'web/base_admin.html' %}
+{% load widget_tweaks %}
+{% load static %}
+
+{% block title %}
+ویرایش صفحه نخست
+{% endblock %}
+
+
+{% block header_page %}
+<div class="page-header">
+    <div>
+
+        <ol class="breadcrumb">
+
+            <li class="breadcrumb-item active" aria-current="page">ویرایش تنظیمات اصلی</li>
+        </ol>
+    </div>
+
+</div>
+{% endblock %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card custom-card">
+            <div class="card-body">
+                <div class="row row-sm">
+                    <div class="col-xl-12 col-lg-12 col-md-12">
+                        <div class="card custom-card">
+                            <div class="card-body">
+                                <div>
+                                    <h6 class="main-content-label mb-4">ویرایش تنظیمات اصلی
+
+                                    </h6>
+
+                                </div>
+                                <form method="post" action="{% url 'update-app-setting' %}"
+                                      enctype="multipart/form-data">
+                                    {% csrf_token %}
+                                    <div class="">
+                                        <div class="row row-sm">
+                                            <div class="col-12">
+                                                <div class="row">
+                                                    <div class="col-9">
+                                                        <div class="row  bg-light rounded pt-3">
+                                                            <div class="col-lg-6 form-group">
+                                                                <label class="form-label">
+                                                                    عنوان وب سایت : <span class="tx-danger">*</span>
+                                                                </label>
+
+                                                                {% render_field form_setting_app.title class="form-control" value=setting_app.title %}
+                                                            </div>
+                                                             <div class="col-lg-6 form-group">
+                                                                <label class="form-label">
+                                                                    ایمیل شرکت :
+                                                                </label>
+                                                                {% render_field form_setting_app.email class="form-control" value=setting_app.email %}
+                                                            </div>
+                                                            <div class="col-lg-6 form-group">
+                                                                <label class="form-label">
+                                                                    تلفن ثابت شرکت :
+                                                                </label>
+                                                                {% render_field form_setting_app.tel class="form-control" value=setting_app.tel %}
+                                                            </div>
+
+                                                            <div class="col-lg-6 form-group">
+                                                                <label class="form-label">
+                                                                    تلفن همراه (پشتیبانی) :
+                                                                </label>
+                                                                {% render_field form_setting_app.mobile class="form-control" value=setting_app.mobile %}
+                                                            </div>
+
+                                                            <div class="col-lg-6 form-group">
+                                                                <label class="form-label">
+                                                                    متن هنگام ورود به سایت :
+                                                                </label>
+                                                                 <textarea type="text" rows="2" name="login_text" class="form-control"
+                                                              id="address">{{setting_app.login_text}}</textarea>
+
+                                                            </div>
+
+
+
+
+                                                            <div class="col-lg-6 form-group">
+                                                                <label class="form-label">
+                                                                    آدرس شرکت :
+                                                                </label>
+                                                                 <textarea type="text" rows="2" name="address" class="form-control"
+                                                              id="address">{{setting_app.address}}</textarea>
+
+                                                            </div>
+
+                                                            <div class="col-lg-6 form-group">
+                                                                <label class="form-label">
+                                                                    درباره شرکت توضیح کوتاهی بنویسید :
+                                                                </label>
+                                                                   <textarea type="text" rows="2" name="about_text" class="form-control"
+                                                              id="about_text">{{setting_app.about_text}}</textarea>
+
+                                                            </div>
+
+
+                                                            <div class="col-lg-6 form-group">
+                                                                <label class="form-label">
+                                                                    فوتر یا پانوشت سایت :
+                                                                </label>
+                                                                 <textarea type="text" rows="2" name="footer_text" class="form-control"
+                                                              id="footer_text">{{setting_app.footer_text}}</textarea>
+
+
+                                                            </div>
+                                                            <div class="col-lg-12 form-group">
+                                                                <label class="form-label">
+                                                                    توضیحات تکمیلی وب سایت : <span
+                                                                        class="tx-danger">*</span>
+                                                                </label>
+                                                                <textarea type="text" rows="6" name="description" class="form-control"
+                                                              id="description">{{setting_app.description}}</textarea>
+
+                                                            </div>
+
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-3">
+                                                        <div class="row">
+                                                            <div class="col-lg-12 form-group">
+                                                            <button class="btn ripple btn-main-primary btn-block mt-4" type="submit">ویرایش اطلاعات
+                                        </button>
+                                                            </div>
+                                                            <div class="col-lg-12 form-group  ">
+                                                                <label class="form-label">
+                                                                    نمایش سایت
+                                                                    <span
+                                                                        class="tx-danger">*</span>
+                                                                </label>
+                                                                <select id="is_active" name="is_active" class="form-control ">
+                                                                 {% if setting_app.is_active == True %}
+
+
+                                                                    <option  value="True" selected>سایت فعال است</option>
+                                                                    <option  value="False">سایت غیر فعال است</option>
+
+                                                                {% else %}
+                                                                    <option  value="True" >سایت فعال است</option>
+                                                                    <option  value="False" selected>سایت غیر فعال است</option>
+
+                                                                {% endif %}
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-lg-12 form-group">
+                                                                <label class="form-label">
+                                                                    تصویر مربوط به لوگو <span
+                                                                        class="tx-danger">*</span>
+                                                                </label>
+                                                                {% render_field form_setting_app.logo class="dropify" %}
+                                                                <img src=" {{setting_app.logo.url}}" alt="{{setting_app.title}}">
+                                                            </div>
+
+                                                            <div class="col-lg-12 form-group">
+                                                                <label class="form-label">
+                                                                    تصویر مربوط به favicon <span
+                                                                        class="tx-danger">*</span>
+                                                                </label>
+                                                                {% render_field form_setting_app.favicon class="dropify" %}
+                                                                <img src=" {{setting_app.favicon.url}}" alt="{{setting_app.title}}">
+                                                            </div>
+
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                        <button class="btn ripple btn-main-primary btn-block mt-4" type="submit">ویرایش اطلاعات
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block javas %}
+
+{% endblock %}
+
+</body>
+</html>
