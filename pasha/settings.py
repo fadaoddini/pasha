@@ -5,6 +5,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 INSTALLED_APPS = [
+    'admin_interface',
+    'colorfield',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -21,6 +23,8 @@ INSTALLED_APPS = [
     'tinymce',
     'ckeditor',
 ]
+X_FRAME_OPTIONS = "SAMEORIGIN"
+SILENCED_SYSTEM_CHECKS = ["security.W019"]
 CSRF_TRUSTED_ORIGINS = ['https://*.mrsaeed.ir', 'https://*.127.0.0.1']
 CSRF_COOKIE_SECURE = False
 MIDDLEWARE = [
@@ -83,7 +87,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'fa'
 
 TIME_ZONE = 'Asia/Tehran'
 

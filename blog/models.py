@@ -11,8 +11,8 @@ class Category(models.Model):
     parent = models.ForeignKey('self', on_delete=models.CASCADE, related_name='children', null=True, blank=True)
 
     class Meta:
-        verbose_name = 'Category'
-        verbose_name_plural = "Categories"
+        verbose_name = 'دسته بندی وبلاگ'
+        verbose_name_plural = "دسته بندی بلاگ"
 
     def __str__(self):
         return self.name
@@ -42,3 +42,7 @@ class Blog(models.Model):
 
     def __str__(self):
         return f"({self.title}):{self.user}"
+
+    class Meta:
+        verbose_name = 'وبلاگ'
+        verbose_name_plural = "بلاگ ها"

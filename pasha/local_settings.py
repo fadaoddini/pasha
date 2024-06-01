@@ -1,11 +1,11 @@
-
 import os
-DEBUG = False
+SECRET_KEY = 'django-insecure-%z)8s_em9w-b1mslny*ni6t1dro#=mi-9iq^!#+jjp@1sa^q_2'
+
+DEBUG = True
 ALLOWED_HOSTS = ['*']
-SECRET_KEY = os.environ.get("SECRET_KEY")
-DB_NAME = os.environ.get("DB_NAME")
-DB_USER = os.environ.get("DB_USER")
-DB_PASS = os.environ.get("DB_PASS")
-DB_HOST = os.environ.get("DB_HOST")
-DB_PORT = os.environ.get("DB_PORT")
+DB_NAME = 'pasha'
+DB_USER = 'pasha'
+DB_PASS = 'pasha'
+DB_HOST = 'localhost'
+DB_PORT = 5432
 

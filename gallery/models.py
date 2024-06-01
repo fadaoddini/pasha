@@ -1,3 +1,4 @@
+from ckeditor_uploader.fields import RichTextUploadingField
 from django.db import models
 from django.contrib.auth import get_user_model as user_model
 from django.db import models, transaction
@@ -10,14 +11,14 @@ class Gallery(models.Model):
 
     User = user_model()
     user = models.ForeignKey(User, related_name='galleries', on_delete=models.RESTRICT)
-    description = models.TextField(blank=True)
+    description = RichTextUploadingField(blank=True)
     is_active = models.BooleanField(default=True)
     create_time = models.DateTimeField(auto_now_add=True)
     modified_time = models.DateTimeField(auto_now=True)
 
     class Meta:
-        verbose_name = 'Gallery'
-        verbose_name_plural = "Galleries"
+        verbose_name = 'گالری'
+        verbose_name_plural = "گالری"
 
     def __str__(self):
         return self.description

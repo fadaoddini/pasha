@@ -25,8 +25,8 @@ class SettingApp(models.Model):
     is_active = models.BooleanField(choices=STATUS_OPEN, default=ACTIVE)
 
     class Meta:
-        verbose_name = 'setting'
-        verbose_name_plural = 'settings'
+        verbose_name = 'تنظیمات'
+        verbose_name_plural = 'تنظیمات'
 
     def __str__(self):
         return self.title
@@ -47,8 +47,8 @@ class Section1(models.Model):
     text3 = models.CharField(max_length=120)
 
     class Meta:
-        verbose_name = 'section1'
-        verbose_name_plural = 'sections1'
+        verbose_name = 'بخش اول'
+        verbose_name_plural = 'بخش اول'
 
     def __str__(self):
         return "بخش اول"
@@ -68,8 +68,8 @@ class Section2(models.Model):
     text2 = models.CharField(max_length=120)
 
     class Meta:
-        verbose_name = 'section2'
-        verbose_name_plural = 'sections2'
+        verbose_name = 'بخش دوم'
+        verbose_name_plural = 'بخش دوم'
 
     def __str__(self):
         return "بخش دوم"
@@ -81,8 +81,8 @@ class Section3(models.Model):
     footer = models.TextField(blank=True)
 
     class Meta:
-        verbose_name = 'section3'
-        verbose_name_plural = 'sections3'
+        verbose_name = 'بخش سوم'
+        verbose_name_plural = 'بخش سوم'
 
     def __str__(self):
         return "بخش سوم"
@@ -107,8 +107,8 @@ class Section4(models.Model):
     num_person = models.PositiveBigIntegerField()
 
     class Meta:
-        verbose_name = 'section4'
-        verbose_name_plural = 'sections4'
+        verbose_name = 'بخش چهارم'
+        verbose_name_plural = 'بخش چهارم'
 
     def __str__(self):
         return "بخش چهارم"
@@ -120,8 +120,8 @@ class Section5(models.Model):
     footer = models.TextField(blank=True)
 
     class Meta:
-        verbose_name = 'section5'
-        verbose_name_plural = 'sections5'
+        verbose_name = 'بخش پنجم'
+        verbose_name_plural = 'بخش پنجم'
 
     def __str__(self):
         return "بخش پنجم"
@@ -133,8 +133,8 @@ class Section6(models.Model):
     footer = models.TextField(blank=True)
 
     class Meta:
-        verbose_name = 'section6'
-        verbose_name_plural = 'sections6'
+        verbose_name = 'بخش ششم'
+        verbose_name_plural = 'بخش ششم'
 
     def __str__(self):
         return "بخش ششم"

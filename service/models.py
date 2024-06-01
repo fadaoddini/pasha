@@ -1,3 +1,4 @@
+from ckeditor_uploader.fields import RichTextUploadingField
 from django.db import models
 from django.contrib.auth import get_user_model as user_model
 # Create your models here.
@@ -31,7 +32,7 @@ class Service(models.Model):
     title = models.CharField(max_length=50)
     lid = models.CharField(max_length=50)
     hit = models.PositiveBigIntegerField()
-    description = models.TextField(blank=True)
+    description = RichTextUploadingField(blank=True)
     image = models.ImageField(upload_to='%Y/service/service/%m/%d', null=True, blank=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='userblogs')
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='services')
