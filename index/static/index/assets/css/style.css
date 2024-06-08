@@ -6234,6 +6234,10 @@ margin-right: 20px;
   border-radius: 15px;
   position: relative;
 }
+.mapboxgl-canvas{
+  height: 700px;
+
+}
 
 .comp-map iframe,
 .quote-bg iframe {

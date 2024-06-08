@@ -16,6 +16,8 @@ INSTALLED_APPS = [
     'about.apps.AboutConfig',
     'index.apps.IndexConfig',
     'service.apps.ServiceConfig',
+    'product.apps.ProductConfig',
+    'contact.apps.ContactConfig',
     'blog.apps.BlogConfig',
     'gallery.apps.GalleryConfig',
     'adminweb.apps.AdminwebConfig',

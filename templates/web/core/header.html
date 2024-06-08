@@ -1,51 +1,10 @@
 {% load static %}
 <header class="header-wrap style1">
-    <div class="header-top xl-none">
-        <div class="close-header-top xl-none">
-            <button type="button"><i class="las la-times"></i></button>
-        </div>
-        <div class="container-fluid container-full">
-            <div class="row align-items-center">
-                <div class="col-xl-9">
-                    <div class="header-top-right">
-                        <div class="header-bottom-right xl-none">
-                            <div class="select_lang">
-                                <div class="navbar-option-item navbar-language dropdown language-option">
-                                    <button class="dropdown-toggle" type="button"
-                                            data-bs-toggle="dropdown" aria-haspopup="true"
-                                            aria-expanded="false">
-                                        <i class="las la-globe"></i>
-                                        <span class="lang-name"></span>
-                                    </button>
-                                    <div class="dropdown-menu language-dropdown-menu">
-                                        <a class="dropdown-item" href="#">
-                                            <img src="{% static 'index/assets/img/iran.png' %}"
-                                                 alt="flag">
-                                            فارسی
-                                        </a>
-                                        <a class="dropdown-item" href="#">
-                                            <img src="{% static 'index/assets/img/china.png' %}" alt="flag">
-                                            简体中文
-                                        </a>
-                                        <a class="dropdown-item" href="#">
-                                            <img src="{% static 'index/assets/img/uae.png' %}" alt="flag">
-                                            العربيّة
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <a href="quote.html" class="btn style1"> درخواست نقل قول<i
-                                    class="flaticon-left-arrow-1"></i> </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+
     <div class="container-fluid container-full">
         <div class="row align-items-center">
             <div class="col-xl-3 col-lg-6 col-md-6 col-6">
-                <a href="index.html" class="logo">
+                <a href="{% url 'index' %}" class="logo">
                     <img src="{{ setting.logo.url }}" alt="{{ setting.title }}">
                 </a>
             </div>
@@ -56,36 +15,25 @@
                     </div>
                     <div id="menu">
                         <ul class="main-menu list-style">
-                            <li class="has-children">
-                                <a class="active" href="#">خانه</a>
-                                <ul class="sub-menu list-style">
-                                    <li>
-                                        <a class="active" href="index.html">صفحه اصلی 1</a>
-                                    </li>
-                                    <li><a href="index-2.html">صفحه اصلی 2</a></li>
-                                    <li><a href="index-3.html">صفحه اصلی 3</a></li>
-                                </ul>
+                            <li>
+                                <a class="active" href="{% url 'index' %}">خانه</a>
+
                             </li>
                             <li>
-                                <a href="#">محصولات</a>
+                                <a href="{% url 'products' %}">محصولات</a>
 
                             </li>
-
 
                             <li>
-                                <a href="#">وبلاگ</a>
+                                <a href="{% url 'blog-list' %}">وبلاگ</a>
 
                             </li>
-                            <li><a href="#">تماس با ما</a></li>
+                            <li><a href="{% url 'contact' %}">تماس با ما</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="mobile-bar-wrap">
-                    <div class="mobile-top-bar xl-none">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
+
                     <div class="mobile-menu xl-none">
                         <a href="javascript:void(0)"><i class="las la-bars"></i></a>
                     </div>
@@ -94,7 +42,7 @@
             <div class="col-xl-3 lg-none">
                 <div class="header-right">
 
-                    <a href="#" class="btn style1"> درخواست مشاوره<i
+                    <a href="{% url 'contact' %}" class="btn style1"> درخواست مشاوره<i
                             class="flaticon-left-arrow-1"></i> </a>
                 </div>
             </div>

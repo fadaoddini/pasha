@@ -4,6 +4,7 @@
     <img src="{% static 'index/assets/img/hero/leaf-1.png' %}" alt="Image" class="leaf-shape-3 lg-none">
     <img src="{% static 'index/assets/img/hero/leaf-4.svg' %}" alt="Image" class="leaf-shape-4  lg-none">
     <div class="container-fluid container-full">
+
         <div class="row">
             <div class="col-xl-7 col-lg-6 col-md-12">
                 <div class="hero-content style1">
@@ -18,7 +19,7 @@
                     <div class="hero-btn" data-animation="slideInUp" data-animation-delay="1600ms">
                         <a href="about.html" class="btn style1"><i class="flaticon-book"></i>اطلاعات
                             بیشتر</a>
-                        <a href="about.html" class="btn style2"><i
+                        <a href="{% url 'contact' %}" class="btn style2"><i
                                 class="flaticon-contact-book"></i>تماس با ما</a>
                     </div>
                     <ul class="promo-service list-style style1">
@@ -39,6 +40,7 @@
                     </ul>
                 </div>
             </div>
+
             <div class="col-xl-5 col-lg-6 col-md-12">
                 <div class="hero-video-wrap">
                     <div class="hero-video-img-two">
@@ -49,12 +51,14 @@
                         <img src="{% static 'index/assets/img/hero/gloves-1.svg' %}" alt="Image"
                              class="gloves-shape sm-none">
                     </div>
+
                     <div class="hero-video-img-one">
                         <img src="{{ section1.image2.url }}" alt="{{section1.title}}">
                         <img src="{% static 'index/assets/img/hero/leaf-2.svg' %}" alt="Image"
                              class="leaf-shape-1 waving_left sm-none">
+
                         <a class="video-play circle"
-                           href="https://www.youtube.com/watch?v=ihnUg0_eS8Q"><i
+                           href="{{ section1.film.url }}"><i
                                 class="flaticon-play"></i></a>
                     </div>
                 </div>
@@ -64,3 +68,4 @@
     <a href="#about-section" class="scroll-to-bottom bounce"><i
             class="las la-arrow-alt-circle-down"></i></a>
 </section>
+

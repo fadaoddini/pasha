@@ -10,64 +10,66 @@
             </p>
         </div>
         <div class="row">
+              {% for gallery1 in galleries1 %}
+
             <div class="col-xl-3 col-lg-6">
                 <div class="row">
                     <div class="col-12">
-                        <div class="gallery-item style1 bg-f gallery-bg-1">
+                        <div class="gallery-item style1 bg-f" style="background-image:url({{gallery1.images.first.image.url}});">
                             <div class="gallery-info">
-                                <h5><a href="project-details.html">نظافت چمن</a></h5>
-                                <a class="gal_btn" href="project-details.html"><i
+                                <h5><a href="#">{{gallery1.description|safe}}</a></h5>
+                                <a class="gal_btn" href="#"><i
                                         class="flaticon-left-arrow-2"></i></a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            {% endfor %}
+
+
+
             <div class="col-xl-3 col-lg-6">
-                <div class="gallery-item style2 bg-f gallery-bg-2">
-                    <div class="gallery-info">
-                        <h5><a href="project-details.html">خانه و باغ</a></h5>
-                        <a class="gal_btn" href="project-details.html"><i
-                                class="flaticon-left-arrow-2"></i></a>
-                    </div>
-                </div>
-                <div class="gallery-item style2 bg-f gallery-bg-3">
-                    <div class="gallery-info">
-                        <h5><a href="project-details.html">باغ تجاری</a></h5>
-                        <a class="gal_btn" href="project-details.html"><i
-                                class="flaticon-left-arrow-2"></i></a>
-                    </div>
-                </div>
-            </div>
+
+        {% for gallery5 in galleries5 %}
+
+      <div class="gallery-item style2 bg-f" style="background-image:url({{gallery5.images.first.image.url}});">
+<div class="gallery-info">
+<h5><a href="#">{{gallery5.description|safe}}</a></h5>
+<a class="gal_btn" href="#"><i class="flaticon-left-arrow-2"></i></a>
+</div>
+</div>
+
+              {% endfor %}
+
+</div>
+
+
+
             <div class="col-xl-6">
                 <div class="row">
+                    {% for gallery2 in galleries2 %}
                     <div class="col-xl-12  col-lg-12">
-                        <div class="gallery-item style2 bg-f gallery-bg-4">
+                            <div class="gallery-item style2 bg-f" style="background-image:url({{gallery2.images.first.image.url}});">
                             <div class="gallery-info">
-                                <h5><a href="project-details.html">پرورش در فضای باز</a></h5>
-                                <a class="gal_btn" href="project-details.html"><i
+                                <h5><a href="#">{{gallery2.description|safe}}</a></h5>
+                                <a class="gal_btn" href="#"><i
                                         class="flaticon-left-arrow-2"></i></a>
                             </div>
                         </div>
                     </div>
+                    {% endfor %}
+                    {% for gallery3 in galleries3 %}
                     <div class="col-xl-6 col-lg-6">
-                        <div class="gallery-item style2 bg-f gallery-bg-5">
+                            <div class="gallery-item style2 bg-f" style="background-image:url({{gallery3.images.first.image.url}});">
                             <div class="gallery-info">
-                                <h5><a href="project-details.html">نگهداری</a></h5>
-                                <a class="gal_btn" href="project-details.html"><i
+                                <h5><a href="#">{{gallery3.description|safe}}</a></h5>
+                                <a class="gal_btn" href="#"><i
                                         class="flaticon-left-arrow-2"></i></a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-6  col-lg-6">
-                        <div class="gallery-item style2 bg-f gallery-bg-6">
-                            <div class="gallery-info">
-                                <h5><a href="project-details.html">پرورش گیاهان</a></h5>
-                                <a class="gal_btn" href="project-details.html"><i
-                                        class="flaticon-left-arrow-2"></i></a>
-                            </div>
-                        </div>
-                    </div>
+  {% endfor %}
                 </div>
             </div>
         </div>

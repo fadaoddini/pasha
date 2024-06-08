@@ -12,6 +12,8 @@ urlpatterns = [
     path('', include('index.urls')),
     path('service/', include('service.urls')),
     path('gallery/', include('gallery.urls')),
+    path('product/', include('product.urls')),
+    path('contact/', include('contact.urls')),
     path('admin_web/', include('adminweb.urls')),
     path('tinymce/', include('tinymce.urls')),
     path('ckeditor/', include('ckeditor_uploader.urls')),

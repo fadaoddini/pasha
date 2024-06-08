@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views import View
 
+from gallery.models import Gallery
 from index.models import Section1, Section2, Section3, Section4, Section5, Section6
 from service.models import Category, Service
 
@@ -24,8 +25,16 @@ class MainIndex(View):
         context['section6'] = section6
         categories = Category.objects.prefetch_related('services').all()
         services = Service.objects.select_related('category').filter(status=True).all()
+        galleries1 = Gallery.objects.all()[1:2]
+        galleries2 = Gallery.objects.all()[2:3]
+        galleries3 = Gallery.objects.all()[3:5]
+        galleries5 = Gallery.objects.all()[4:7]
         context['services'] = services
         context['categories'] = categories
+        context['galleries1'] = galleries1
+        context['galleries2'] = galleries2
+        context['galleries3'] = galleries3
+        context['galleries5'] = galleries5
         if request.user.is_anonymous:
             context['user'] = "hello dear ...!"
 

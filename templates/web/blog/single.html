@@ -1,0 +1,91 @@
+﻿{% extends 'web/base.html' %}
+{% load static %}
+
+
+{% block styles %}
+
+{% endblock %}
+{% block title %}
+{{ setting.title }}
+{% endblock %}
+
+{% block preloader %}
+<div class="preloader js-preloader">
+    <img src="{% static 'index/assets/img/preloader.gif' %}" alt="{{setting.title}}">
+</div>
+{% endblock %}
+
+{% block content %}
+
+
+<div class="blog-section ptb-100 bg-selago">
+    <div class="container">
+        <div class="row gx-5">
+            <div class="col-xl-10 offset-xl-1 col-lg-10 offset-lg-1">
+                <article class="bg-white">
+                    <div class="row">
+                        <div class="col-5">
+                            <div class="post-img">
+                         <img alt="{{ blog.title }}" src="{{ blog.image.url }}">
+                        <span class="hort-post-date">{{ blog.category }}</span>
+                    </div>
+                        </div>
+                        <div class="col-7">
+                             <h2 class="post-title">{{ blog.title }}</h2>
+                    <div class="post-para">
+                       {{ blog.lid|safe }}
+                    </div>
+                        </div>
+                    </div>
+
+
+                    <div class="post-para">
+                       {{ blog.description|safe }}
+                    </div>
+                </article>
+                <div class="post-meta-option">
+                    <div class="row gx-0 align-items-center">
+                        <div class="col-md-7 col-12">
+
+                        </div>
+                        <div class="col-md-5 col-12 text-md-end text-start">
+                            <div class="post-share w-100">
+                                <span>اشتراک گذاری:</span>
+                                <ul class="social-profile style4 list-style">
+                                    <li><a target="_blank" href="https://eitaa.com/share/url?url=YourURL">
+                                            <img style="width: 20px;
+    margin: 4px;" src="{% static 'public/icon/Eitaa-logo.png' %}" alt="اشتراک گذاری در ایتا" >
+                                    </a>
+                                    </li>
+
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
+
+{% block javas %}
+<script src="{% static 'index/assets/js/jquery.min.js' %}"></script>
+<script src="{% static 'index/assets/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'index/assets/js/bootstrap-validator.js' %}"></script>
+<script src="{% static 'index/assets/js/form-validation.js' %}"></script>
+<script src="{% static 'index/assets/js/swiper-min.js' %}"></script>
+<script src="{% static 'index/assets/js/jquery-magnific-popup.js' %}"></script>
+<script src="{% static 'index/assets/js/jquery-appear.js' %}"></script>
+<script src="{% static 'index/assets/js/scroll-animation.js' %}"></script>
+<script src="{% static 'index/assets/js/odometer.min.js' %}"></script>
+<script src="{% static 'index/assets/js/main.js' %}"></script>
+{% endblock %}
+
+
+</body>
+</html>
