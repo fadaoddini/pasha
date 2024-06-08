@@ -27,7 +27,7 @@ INSTALLED_APPS = [
 ]
 X_FRAME_OPTIONS = "SAMEORIGIN"
 SILENCED_SYSTEM_CHECKS = ["security.W019"]
-CSRF_TRUSTED_ORIGINS = ['https://*.mrsaeed.ir', 'https://*.127.0.0.1']
+CSRF_TRUSTED_ORIGINS = ['https://*.pashakood.ir', 'https://*.127.0.0.1']
 CSRF_COOKIE_SECURE = False
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
